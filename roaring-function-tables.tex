@@ -1,0 +1,55 @@
+\documentclass{article} % say
+\usepackage[table]{xcolor} % for table cell colors
+\renewcommand{\familydefault}{\sfdefault} % for sans font
+\begin{document}
+
+\definecolor{lightblue}{HTML}{E4EFF4}
+\definecolor{darkblue}{HTML}{3C5F8D}
+\definecolor{darkgreen}{HTML}{1DB598}
+\definecolor{boldred}{HTML}{ff2B2B}
+
+% "l | c c c |" describes column alignment (left/right/center)
+% and the "|" are locations of vertical lines
+\begin{tabular}{l | c c c |}
+  % hphantom adds horizontal space matching its argument
+  % apparently this is easier than setting column width
+  \textbf{AND \hphantom{NOT}} & Array & Bitmap & RLE \\
+  \hline
+  Array  & x & x & \cellcolor{darkgreen} x \\
+  Bitmap &   & x & \cellcolor{darkgreen} x \\
+  RLE    &   &   & \cellcolor{darkgreen} x \\
+  \hline
+\end{tabular}
+\hspace{5mm}
+\begin{tabular}{l | c c c |}
+  \textbf{OR \hphantom{ANDN}} & Array & Bitmap & RLE \\
+  \hline
+  Array  & x & x & \cellcolor{darkgreen} x \\
+  Bitmap &   & x & \cellcolor{darkgreen} x \\
+  RLE    &   &   & \cellcolor{darkgreen} x \\
+  \hline
+\end{tabular}
+
+\vspace{5mm}
+
+\begin{tabular}{l | c c c |}
+  \textbf{ANDNOT \hphantom{}} & Array & Bitmap & RLE \\
+  \hline
+  Array  & x & x & \cellcolor{darkgreen} x \\
+  Bitmap & x & x & \cellcolor{darkgreen} x \\
+  RLE    & \cellcolor{darkgreen}x & \cellcolor{darkgreen}x & \cellcolor{darkgreen} x \\
+  \hline
+\end{tabular}
+\hspace{5mm}
+\begin{tabular}{l | c c c |}
+  \textbf{XOR \hphantom{NDN}} & Array & Bitmap & RLE \\
+  \hline
+  Array  & \cellcolor{darkgreen} x & \cellcolor{darkgreen} x & \cellcolor{darkgreen} x \\
+  Bitmap &   & \cellcolor{darkgreen} x & \cellcolor{darkgreen} x \\
+  RLE    &   &   & \cellcolor{darkgreen} x \\
+  \hline
+\end{tabular}
+ 
+
+\end{document}
+
