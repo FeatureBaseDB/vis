@@ -4,11 +4,11 @@
 \begin{document}
 
 
-\texttt{Bitmap.Optimize()} uses the values of \texttt{c.n} (cardinality) and
-\texttt{c.runCount()} to convert container types, achieving minimal storage size, according to this diagram:\\
+\texttt{Bitmap.Optimize()} uses the values of cardinality (\texttt{c.n} or $N$) and
+run count (\texttt{c.runCount()} or $N_R$) to convert container types, achieving minimal storage size, according to this diagram:\\
 
 \begin{tikzpicture}
-  \draw [<->] (0,5) node [left] {runCount} -- (0,0) node [below left] {0} -- (5,0) node [below] {cardinality};
+  \draw [<->] (0,5) node [left] {$N_R$} -- (0,0) node [below left] {0} -- (5,0) node [below] {$N$};
   \draw [help lines] (5, 0) -- (5, 5) -- (0, 5);
   \draw [dotted] (0,1) node [left] {RunMaxSize} -- (2,1) -- (2,0) node [below] {ArrayMaxSize};
   \draw [solid] (6, 1) -- (2,1) -- (2,6);
@@ -22,9 +22,19 @@
 \bigskip
 
 
-Container elements are 16-bit values stored in \texttt{uint32}s. Array elements are
-single values, runs are two values (start and end). Switching to \texttt{uint16}s
-instead, which will save space for these container types.\\
+Let $A$ be the array element size in bits, $M$ be the maximum number of bits in
+a bitmap, $R$ be the RLE start/end element size. Then array size is $AN$, run size is
+$2RN_R$, and bitmap size is $M$.\\
+
+Arrays are smaller than bitmaps when $AN < M$ or $N < \frac{M}{A} = ArrayMaxSize$.\\
+Runs are smaller than bitmaps when $2RN_R < M$ or $N_R < \frac{M}{2R} = RunMaxSize$.\\
+Array are smaller than runs when $AN < 2RN_R$ or $N < 2\frac{R}{A} N_R$.\\
+
+Currently (v0.4.x), $A = R = 32$, $M = 65536$, so\\ 
+
+$ArrayMaxSize = 2048$.\\
+$RunMaxSize = 1024$.\\
+Arrays are smaller than runs when $N < 2 N_R$.\\
 \\
 \begin{tabular}{l | c | c}
     & 32-bit & 16-bit \\
