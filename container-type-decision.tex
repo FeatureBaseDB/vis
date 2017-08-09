@@ -7,7 +7,16 @@
 % http://cremeronline.com/LaTeX/minimaltikz.pdf
 
 \texttt{Bitmap.Optimize()} uses the values of cardinality (\texttt{c.n} or $N$) and
-run count (\texttt{c.runCount()} or $N_R$) to convert container types, achieving minimal storage size, according to this diagram:\\
+run count (\texttt{c.runCount()} or $N_R$) to convert container types, achieving
+minimal storage size, according to the diagram below. Note that it is not to scale;
+M is actually much larger than RunMaxSize and ArrayMaxSize. Also, in the $N$-$N_R$ space,
+there is no direct correlation between the size of a region, and the number of sets in
+the region, or the likelihood of a random set belonging to it.\\
+
+\definecolor{pilosa-lightblue}{HTML}{E4EFF4}
+\definecolor{pilosa-blue}{HTML}{3C5F8D}
+\definecolor{pilosa-green}{HTML}{1DB598}
+\definecolor{pilosa-red}{HTML}{ff2B2B}
 
 \begin{tikzpicture}
   % \draw [pattern=north west lines, pattern color=gray] (0, 0) -- (4, 4) -- (8, 4) -- (8, 8) -- (0, 8) -- (0, 0);
@@ -39,30 +48,32 @@ run count (\texttt{c.runCount()} or $N_R$) to convert container types, achieving
   \draw (0, 4) node [left] {$\frac{M}{2}$};
 \end{tikzpicture}
 
-$M$ is the maximum number of bits in a container.\\
+$M$ is the maximum number of bits in a container, maxContainerVal+1.\\
 
-Note the impossible region: The $N = N_R$ diagonal represents sets where every
-bit is isolated - all run lengths are one. No set can be above this line. The
-point $(\frac{M}{2}, \frac{M}{2})$ represents the set where alternating bits are
+Note the impossible region:
+\begin{itemize}
+  \item The $N = N_R$ diagonal represents sets where every bit is isolated - all run lengths are one. No set can be above this line.
+  \item The point $(\frac{M}{2}, \frac{M}{2})$ represents the set where alternating bits are
 present, which represents the maximum number of runs for a fixed set size. No
-set can be above this line. The remaining region represents all possible sets,
+set can be above this line.
+\end{itemize}
+
+The remaining region represents all possible sets,
 with container type regions separated by the solid lines.
 
-
 \bigskip
-
 
 Let $A$ be the array element size in bits, $R$ be the RLE start/end element size. Then array size is $AN$, run size is
 $2RN_R$, and bitmap size is $M$.\\
 
-Arrays are smaller than bitmaps when $AN < M$ or $N < \frac{M}{A} = ArrayMaxSize$.\\
-Runs are smaller than bitmaps when $2RN_R < M$ or $N_R < \frac{M}{2R} = RunMaxSize$.\\
+Arrays are smaller than bitmaps when $AN < M$ or $N < \frac{M}{A} = $ ArrayMaxSize.\\
+Runs are smaller than bitmaps when $2RN_R < M$ or $N_R < \frac{M}{2R} = $ RunMaxSize.\\
 Array are smaller than runs when $AN < 2RN_R$ or $N < 2\frac{R}{A} N_R$.\\
 
 Currently (v0.4.x), $A = R = 32$, $M = 65536$, so\\ 
 
-$ArrayMaxSize = 2048$.\\
-$RunMaxSize = 1024$.\\
+ArrayMaxSize $ = 2048$.\\
+RunMaxSize $ = 1024$.\\
 Arrays are smaller than runs when $N < 2 N_R$.\\
 \\
 \begin{tabular}{l | c | c}
