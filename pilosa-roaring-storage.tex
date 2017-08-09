@@ -42,7 +42,7 @@
       Descriptive header\\
       \block[minimum width=15em]{
         8 \block[minimum width=13em]{Key 0}\\
-        4 \block[minimum width=13em]{Cardinality 0}
+        4 \block[minimum width=13em]{\textcolor{red}{Cardinality 0}}
       }\\
       \vdots \\
       $\times \textcolor{red}{N_c}$
@@ -81,28 +81,31 @@
   % sure why. also not sure what the units or origin are - it seems to be
   % relative to the most recently placed node...
   \tikz\node at (6, 10) [thin,rounded corners,fill=white,text=darkblue,align=center,minimum width=1mm] (containers) {
-    \block[]{
+    \quad \block[]{
       Array container\\
       2 \block[minimum width=13em]{Value 0}\\
       2 \block[minimum width=13em]{Value 1}\\
       \vdots\\
-      $\times$ cardinality
+      $\times$ \textcolor{red}{cardinality}
     }\\
-    \block[minimum width=50mm]{
+    \\
+    \quad \block[minimum width=50mm]{
       Bitmap container\\
       8 \block[minimum width=13em]{Bitset 0}\\
       8 \block[minimum width=13em]{Bitset 1}\\
       \vdots\\
       $\times$ bitmapN
     }\\
-    \block[minimum width=50mm]{
+    \\
+    \quad \block[minimum width=50mm]{
       RLE container\\
       2 \block[minimum width=13em]{\textcolor{red}{$N_{runs}$}}\\
       4 \block[minimum width=13em]{Run 0}\\
       4 \block[minimum width=13em]{Run 1}\\
       \vdots\\
       $\times$ \textcolor{red}{$N_{runs}$}
-    }
+    }\\
+    \vspace{6cm}
   };
 
 \end{tikzpicture}
