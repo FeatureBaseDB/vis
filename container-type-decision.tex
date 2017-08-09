@@ -10,15 +10,27 @@
 run count (\texttt{c.runCount()} or $N_R$) to convert container types, achieving minimal storage size, according to this diagram:\\
 
 \begin{tikzpicture}
-  \draw [pattern=north west lines, pattern color=gray] (0, 0) -- (4, 4) -- (8, 4) -- (8, 8) -- (0, 8) -- (0, 0);
-  \draw [<->] (0,8) node [above] {$N_R$} node [left] {$M$} -- (0,0) node [below left] {0} -- (8,0) node [right] {$N$} node [below] {$M$};
+  % \draw [pattern=north west lines, pattern color=gray] (0, 0) -- (4, 4) -- (8, 4) -- (8, 8) -- (0, 8) -- (0, 0);
+  \draw [fill=gray] (0, 0) -- (4, 4) -- (8, 4) -- (8, 8) -- (0, 8) -- (0, 0);
+  \fill [pilosa-red] (0, 0) -- (2, 1) -- (8, 1) -- (8, 0) -- (0, 0);
+  \fill [pilosa-blue] (2, 1) -- (2, 2) -- (4, 4) -- (8, 4) -- (8, 1) -- (2, 1);
+  \fill [pilosa-green] (0, 0) -- (2, 1) -- (2, 2) -- (0, 0);
+  \draw [<->] (0,8.5) node [above] {$N_R$ (runCount)} -- (0,0) node [below left] {0} -- (8.5,0) node [right] {$N$ (cardinality)};
+  \draw (0,8) node [left] {$M$};
+  \draw (8,0) node [below] {$M$};
   \draw [help lines] (8, 0) -- (8, 8) -- (0, 8);
   \draw [dotted] (0,1) node [left] {RunMaxSize} -- (2,1) -- (2,0) node [below] {ArrayMaxSize};
-  \draw [solid] (9, 1) -- (2,1) -- (2,9);
-  \draw [solid] (0, 0) -- (2, 1);
+  \draw [dotted] (2, 2) -- (2, 9);
+  %\draw [solid] (9, 1) -- (2, 1) -- (2, 9);
+  %\draw [solid] (0, 0) -- (2, 1);
+  %\draw [solid, line width=2] (0, 0) -- (2, 1) -- (8, 1) -- (8, 0) -- (0, 0);
+  %\draw [solid, line width=2] (0, 0) -- (2, 2) -- (2, 1);
+  %\draw [solid, line width=2] (2, 2) -- (4, 4) -- (8, 4) -- (8, 1);
+  \draw [solid] (8, 0) -- (8, 4);
   \draw [dotted] (2, 1) -- (9, 4.5);
-  \draw [dashed] (0, 0) -- (9, 9);
-  \draw [dashed] (4, 4) -- (9, 4);
+  % \draw [dashed] (0, 0) -- (4, 4);
+  \draw [dashed] (4, 4) -- (9, 9);
+  % \draw [dashed] (4, 4) -- (9, 4);
   \draw [dashed] (0, 4) -- (4, 4);
   \node at (1.5, 1) {array};
   \node at (3, .5) {runs};
