@@ -24,35 +24,45 @@ be an array, rather than an RLE, \textit{if the set bits are randomly distribute
 \definecolor{pilosa-red}{HTML}{ff2B2B}
 
 \begin{tikzpicture}
-  % \draw [pattern=north west lines, pattern color=gray] (0, 0) -- (4, 4) -- (8, 4) -- (8, 8) -- (0, 8) -- (0, 0);
-  \draw [fill=gray] (0, 0) -- (4, 4) -- (8, 0) -- (8, 8) -- (0, 8) -- (0, 0);
+  % draw filled regions first so lines are overlaid
+  %\draw [pattern=north west lines, pattern color=gray] (0, 0) -- (4, 4) -- (8, 4) -- (8, 8) -- (0, 8) -- (0, 0);
+  %\draw [fill=gray] (0, 0) -- (4, 4) -- (8, 0) -- (8, 8) -- (0, 8) -- (0, 0);
+  \draw [fill=gray] (0, 0) -- (4, 4) -- (8, 0) -- (8, 4) -- (0, 4) -- (0, 0);
   \fill [pilosa-red] (0, 0) -- (2, 1) -- (7, 1) -- (8, 0) -- (0, 0);
   \fill [pilosa-blue] (2, 1) -- (2, 2) -- (4, 4) -- (7, 1) -- (2, 1);
   \fill [pilosa-green] (0, 0) -- (2, 1) -- (2, 2) -- (0, 0);
-  \draw [<->] (0,8.5) node [above] {$N_R$ (runCount)} -- (0,0) node [below left] {0} -- (8.5,0) node [right] {$N$ (cardinality)};
-  \draw (0,8) node [left] {$M$};
-  \draw (8,0) node [below] {$M$};
-  \draw [help lines] (8, 0) -- (8, 8) -- (0, 8);
+  % region labels
+  \node at (1.5, 1) {array};
+  \node at (3, .5) {runs};
+  \node at (5, 1.5) {bitmap};
+  \node at (5.5, 3.5) {impossible};
+
+  % axes, borders, labels, annotations
+  \draw [<->] (0,4.5) node [above] {$N_R$ (runCount)} -- (0,0) node [below left] {0} -- (8.5,0) node [right] {$N$ (cardinality)};
+  \draw [help lines] (8, 0) -- (8, 4) -- (0, 4);
+  \draw (0, 4) node [left] {$\frac{M}{2}$};
+  \draw (4, 0) node [below] {$\frac{M}{2}$};
+  \draw (8, 0) node [below] {$M$};
+
+  % region boundary extensions
   \draw [dotted] (0,1) node [left] {RunMaxSize} -- (2,1) -- (2,0) node [below] {ArrayMaxSize};
-  % \draw [dotted] (2, 2) -- (2, 9);
+  \draw [dotted] (2, 1) -- (8, 4);
+  \draw [dashed] (4, 0) -- (4, 4);
+
+
+  % cruft
+  %\draw (0, 4) node [left] {$\frac{M}{2}$};
+  %\draw [solid] (8, 0) -- (8, 4);
+  %\draw [dashed] (0, 4) -- (8, 4);
+  %\draw [dotted] (2, 2) -- (2, 9);
   %\draw [solid] (9, 1) -- (2, 1) -- (2, 9);
   %\draw [solid] (0, 0) -- (2, 1);
   %\draw [solid, line width=2] (0, 0) -- (2, 1) -- (8, 1) -- (8, 0) -- (0, 0);
   %\draw [solid, line width=2] (0, 0) -- (2, 2) -- (2, 1);
   %\draw [solid, line width=2] (2, 2) -- (4, 4) -- (8, 4) -- (8, 1);
-  \draw [solid] (8, 0) -- (8, 4);
-  \draw [dotted] (2, 1) -- (8, 4);
-  % \draw [dashed] (0, 0) -- (4, 4);
-  % \draw [dashed] (4, 4) -- (9, 9);
-  % \draw [dashed] (4, 4) -- (9, 4);
-  \draw [dashed] (0, 4) -- (8, 4);
-  \draw [dashed] (4, 0) -- (4, 8);
-  \node at (1.5, 1) {array};
-  \node at (3, .5) {runs};
-  \node at (5, 1.5) {bitmap};
-  \node at (5.5, 3.5) {impossible};
-  \draw (0, 4) node [left] {$\frac{M}{2}$};
-  \draw (4, 0) node [below] {$\frac{M}{2}$};
+  %\draw [dashed] (0, 0) -- (4, 4);
+  %\draw [dashed] (4, 4) -- (9, 9);
+  %\draw [dashed] (4, 4) -- (9, 4);
 \end{tikzpicture}
 
 $M$ is the maximum number of bits in a container, maxContainerVal+1.\\
@@ -62,12 +72,12 @@ Note the impossible region:
   \item The point $(\frac{M}{2}, \frac{M}{2})$ represents a set where all alternating bits are
 present, which represents the maximum number of runs for a fixed set size. This is the only possible case for which $N_R = \frac{M}{2}$, and $N_R$ is smaller for all other sets.
   \item The $N = N_R$ diagonal represents sets where every set bit is isolated - all runs are length one. No set can be above this line, as that would mean more runs than set bits.
-  \item The $N = M-N_R$ diagonal represents set where every clear bit is isolated - all runs are as close as possible while still being separate. No set can be above this line, as that would mean more runs than clear bits.
+  \item The $N = M-N_R$ diagonal represents sets where every clear bit is isolated - all runs are as close as possible while still being separate. No set can be above this line, as that would mean more runs than clear bits. This is really equivalent to the $N=N_R$ constraint.
 
 \end{itemize}
 
 The remaining region represents all possible sets,
-with container type regions separated by the solid lines.
+with container type regions indicated by color.
 
 \bigskip
 
