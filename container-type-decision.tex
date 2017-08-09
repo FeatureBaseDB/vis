@@ -8,10 +8,15 @@
 
 \texttt{Bitmap.Optimize()} uses the values of cardinality (\texttt{c.n} or $N$) and
 run count (\texttt{c.runCount()} or $N_R$) to convert container types, achieving
-minimal storage size, according to the diagram below. Note that it is not to scale;
-M is actually much larger than RunMaxSize and ArrayMaxSize. Also, in the $N$-$N_R$ space,
-there is no direct correlation between the size of a region, and the number of sets in
-the region, or the likelihood of a random set belonging to it.\\
+minimal storage size, according to the diagram below.\\
+
+Note that this is not to scale; M is actually much larger than RunMaxSize and
+ArrayMaxSize. Also, in the $N$-$N_R$ space, there is no direct correlation between
+the size of a region, and the number of sets in the region, or the likelihood of a
+random set belonging to it.\\
+
+For example, a random bitmap with a bit density of 5\% is overwhelmingly likely to
+be an array, rather than an RLE, \textit{if the set bits are randomly distributed}.\\
 
 \definecolor{pilosa-lightblue}{HTML}{E4EFF4}
 \definecolor{pilosa-blue}{HTML}{3C5F8D}
@@ -20,42 +25,45 @@ the region, or the likelihood of a random set belonging to it.\\
 
 \begin{tikzpicture}
   % \draw [pattern=north west lines, pattern color=gray] (0, 0) -- (4, 4) -- (8, 4) -- (8, 8) -- (0, 8) -- (0, 0);
-  \draw [fill=gray] (0, 0) -- (4, 4) -- (8, 4) -- (8, 8) -- (0, 8) -- (0, 0);
-  \fill [pilosa-red] (0, 0) -- (2, 1) -- (8, 1) -- (8, 0) -- (0, 0);
-  \fill [pilosa-blue] (2, 1) -- (2, 2) -- (4, 4) -- (8, 4) -- (8, 1) -- (2, 1);
+  \draw [fill=gray] (0, 0) -- (4, 4) -- (8, 0) -- (8, 8) -- (0, 8) -- (0, 0);
+  \fill [pilosa-red] (0, 0) -- (2, 1) -- (7, 1) -- (8, 0) -- (0, 0);
+  \fill [pilosa-blue] (2, 1) -- (2, 2) -- (4, 4) -- (7, 1) -- (2, 1);
   \fill [pilosa-green] (0, 0) -- (2, 1) -- (2, 2) -- (0, 0);
   \draw [<->] (0,8.5) node [above] {$N_R$ (runCount)} -- (0,0) node [below left] {0} -- (8.5,0) node [right] {$N$ (cardinality)};
   \draw (0,8) node [left] {$M$};
   \draw (8,0) node [below] {$M$};
   \draw [help lines] (8, 0) -- (8, 8) -- (0, 8);
   \draw [dotted] (0,1) node [left] {RunMaxSize} -- (2,1) -- (2,0) node [below] {ArrayMaxSize};
-  \draw [dotted] (2, 2) -- (2, 9);
+  % \draw [dotted] (2, 2) -- (2, 9);
   %\draw [solid] (9, 1) -- (2, 1) -- (2, 9);
   %\draw [solid] (0, 0) -- (2, 1);
   %\draw [solid, line width=2] (0, 0) -- (2, 1) -- (8, 1) -- (8, 0) -- (0, 0);
   %\draw [solid, line width=2] (0, 0) -- (2, 2) -- (2, 1);
   %\draw [solid, line width=2] (2, 2) -- (4, 4) -- (8, 4) -- (8, 1);
   \draw [solid] (8, 0) -- (8, 4);
-  \draw [dotted] (2, 1) -- (9, 4.5);
+  \draw [dotted] (2, 1) -- (8, 4);
   % \draw [dashed] (0, 0) -- (4, 4);
-  \draw [dashed] (4, 4) -- (9, 9);
+  % \draw [dashed] (4, 4) -- (9, 9);
   % \draw [dashed] (4, 4) -- (9, 4);
-  \draw [dashed] (0, 4) -- (4, 4);
+  \draw [dashed] (0, 4) -- (8, 4);
+  \draw [dashed] (4, 0) -- (4, 8);
   \node at (1.5, 1) {array};
   \node at (3, .5) {runs};
-  \node at (4, 2) {bitmap};
-  \node at (3.5, 5) {impossible};
+  \node at (5, 1.5) {bitmap};
+  \node at (5.5, 3.5) {impossible};
   \draw (0, 4) node [left] {$\frac{M}{2}$};
+  \draw (4, 0) node [below] {$\frac{M}{2}$};
 \end{tikzpicture}
 
 $M$ is the maximum number of bits in a container, maxContainerVal+1.\\
 
 Note the impossible region:
 \begin{itemize}
-  \item The $N = N_R$ diagonal represents sets where every bit is isolated - all run lengths are one. No set can be above this line.
-  \item The point $(\frac{M}{2}, \frac{M}{2})$ represents the set where alternating bits are
-present, which represents the maximum number of runs for a fixed set size. No
-set can be above this line.
+  \item The point $(\frac{M}{2}, \frac{M}{2})$ represents a set where all alternating bits are
+present, which represents the maximum number of runs for a fixed set size. This is the only possible case for which $N_R = \frac{M}{2}$, and $N_R$ is smaller for all other sets.
+  \item The $N = N_R$ diagonal represents sets where every set bit is isolated - all runs are length one. No set can be above this line, as that would mean more runs than set bits.
+  \item The $N = M-N_R$ diagonal represents set where every clear bit is isolated - all runs are as close as possible while still being separate. No set can be above this line, as that would mean more runs than clear bits.
+
 \end{itemize}
 
 The remaining region represents all possible sets,
