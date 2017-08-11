@@ -1,0 +1,101 @@
+%\documentclass[tikz]{standalone}
+\documentclass{article} % say
+\usepackage{tikz}
+\usepackage[EULERGREEK]{sansmath}
+\usetikzlibrary{arrows,decorations.pathmorphing,backgrounds,positioning,fit,petri}
+\usetikzlibrary{shapes.multipart}
+\begin{document}
+
+\definecolor{lightblue}{HTML}{E4EFF4}
+\definecolor{darkblue}{HTML}{3C5F8D}
+\definecolor{darkgreen}{HTML}{1DB598}
+\definecolor{boldred}{HTML}{ff2B2B}
+
+% TODO: set text/line color by default or globally
+% TODO: thicker lines
+% TODO: more specific font options
+% https://tex.stackexchange.com/questions/169521/typography-and-style-good-choices-for-font-styles-in-tikz-or-pgfplots-graphics
+% TODO: move "size" values to be right-aligned inside their corresponding blocks
+% (like travis' svg style)
+
+% a block is one of the elements in the drawing that is surrounded by a rounded rectangle
+\newcommand\block[2][]{\tikz\node[draw,thin,rounded
+  corners,fill=white,text=darkblue,align=center,minimum width=1mm,#1] {#2};}
+
+\begin{tikzpicture}
+  \sffamily
+  \sansmath
+  \block[] {
+    Bitmap storage file\\
+    \block[minimum width=16em]{
+      Cookie header\\
+      % "\hskip 2 em" adds horizontal space to account for the different text widths
+      % of "2" and "\frac{}{}"
+      % \block[minimum width=45mm]{Magic number \tikz\node[draw,minimum width=1mm,fill=darkblue,text=white]{2};}\\
+      \hskip 2em 4 \block[minimum width=12em]{Cookie}\\
+      % "\," is a space
+      \hskip 2em 4 \block[minimum width=12em]{$\textcolor{red}{N_c}$\textcolor{darkblue}{\, = Container count}}\\
+      \hskip 0.3em \textcolor{darkblue}{$\frac{\textcolor{red}{N_c}+7}{8}$} \block[minimum width=12em]{runFlagBitset}
+    }\\
+    \block[minimum width=16em]{
+      Descriptive header\\
+      \block[minimum width=15em]{
+        2 \block[minimum width=13em]{Key 0}\\
+        2 \block[minimum width=13em]{\textcolor{red}{Cardinality 0}}
+      }\\
+      \vdots \\
+      $\times \textcolor{red}{N_c}$
+    }\\
+    \block[minimum width=16em]{
+      Offset header\\
+      4 \block[minimum width=14em]{Offset 0}\\
+      4 \block[minimum width=14em]{Offset 1}\\
+      \vdots \\
+      $\times \textcolor{red}{N_c}$
+    }\\
+    \block[minimum width=16em]{
+      Container storage\\
+      $A_0$ \block[minimum width=13em]{Container 0}\\
+      $A_1$ \block[minimum width=13em]{Container 1}\\
+      \vdots \\
+      $\times \textcolor{red}{N_c}$
+    }
+  };\\
+  
+  % containers
+  % "at (6,10)" positions this node. without this the positioning is screwy, not
+  % sure why. also not sure what the units or origin are - it seems to be
+  % relative to the most recently placed node...
+  \tikz\node at (6, 10) [thin,rounded corners,fill=white,text=darkblue,align=center,minimum width=1mm] (containers) {
+    \quad \block[]{
+      Array container\\
+      2 \block[minimum width=13em]{Value 0}\\
+      2 \block[minimum width=13em]{Value 1}\\
+      \vdots\\
+      $\times$ \textcolor{red}{cardinality}
+    }\\
+    \\
+    \quad \block[minimum width=50mm]{
+      Bitmap container\\
+      8 \block[minimum width=13em]{Bitset 0}\\
+      8 \block[minimum width=13em]{Bitset 1}\\
+      \vdots\\
+      $\times$ bitmapN
+    }\\
+    \\
+    \quad \block[minimum width=50mm]{
+      RLE container\\
+      2 \block[minimum width=13em]{\textcolor{red}{$N_{runs}$}}\\
+      4 \block[minimum width=13em]{Run 0}\\
+      4 \block[minimum width=13em]{Run 1}\\
+      \vdots\\
+      $\times$ \textcolor{red}{$N_{runs}$}
+    }\\
+   \vspace{1.4cm}
+  };
+
+\end{tikzpicture}\\
+
+
+
+\end{document}
