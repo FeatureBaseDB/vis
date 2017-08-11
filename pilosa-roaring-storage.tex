@@ -6,10 +6,11 @@
 \usetikzlibrary{shapes.multipart}
 \begin{document}
 
-\definecolor{lightblue}{HTML}{E4EFF4}
-\definecolor{darkblue}{HTML}{3C5F8D}
-\definecolor{darkgreen}{HTML}{1DB598}
-\definecolor{boldred}{HTML}{ff2B2B}
+\definecolor{pilosa-lightblue}{HTML}{E4EFF4}
+\definecolor{pilosa-blue}{HTML}{3C5F8D}
+\definecolor{pilosa-green}{HTML}{1DB598}
+\definecolor{pilosa-red}{HTML}{ff2B2B}
+
 
 % TODO: set text/line color by default or globally
 % TODO: thicker lines
@@ -20,7 +21,7 @@
 
 % a block is one of the elements in the drawing that is surrounded by a rounded rectangle
 \newcommand\block[2][]{\tikz\node[draw,thin,rounded
-  corners,fill=white,text=darkblue,align=center,minimum width=1mm,#1] {#2};}
+  corners,fill=white,text=pilosa-blue,align=center,minimum width=1mm,#1] {#2};}
 
 \begin{tikzpicture}
   \sffamily
@@ -31,19 +32,19 @@
       Cookie header\\
       % "\hskip 2 em" adds horizontal space to account for the different text widths
       % of "2" and "\frac{}{}"
-      % \block[minimum width=45mm]{Magic number \tikz\node[draw,minimum width=1mm,fill=darkblue,text=white]{2};}\\
+      % \block[minimum width=45mm]{Magic number \tikz\node[draw,minimum width=1mm,fill=pilosa-blue,text=white]{2};}\\
       2 \block[minimum width=14em]{Magic number}\\
-      2 \block[minimum width=14em,text=darkgreen]{Storage version}\\
+      2 \block[minimum width=14em,text=pilosa-green]{Storage version}\\
       % "\," is a space
-      4 \block[minimum width=14em]{$\textcolor{red}{N_c}$\textcolor{darkblue}{\, = Container count}}
-      % \hskip 0.3em \textcolor{darkblue}{$\frac{\textcolor{red}{N_c}+7}{8}$} \block[minimum width=12em]{runFlagBitset}
+      4 \block[minimum width=14em]{$\textcolor{red}{N_c}$\textcolor{pilosa-blue}{\, = Container count}}
+      % \hskip 0.3em \textcolor{pilosa-blue}{$\frac{\textcolor{red}{N_c}+7}{8}$} \block[minimum width=12em]{runFlagBitset}
     }\\
     \block[minimum width=16em]{
       Descriptive header\\
       \block[minimum width=15em]{
         8 \block[minimum width=13em]{Key 0}\\
-        2 \block[minimum width=13em,text=darkgreen]{{Container type 0}}\\
-        2 \block[minimum width=13em]{\textcolor{red}{Cardinality 0}}
+        2 \block[minimum width=13em,text=pilosa-green]{{Container type 0}}\\
+        2 \block[minimum width=13em]{\textcolor{pilosa-red}{Cardinality 0}}
       }\\
       \vdots \\
       $\times \textcolor{red}{N_c}$
@@ -62,13 +63,13 @@
       \vdots \\
       $\times \textcolor{red}{N_c}$
     }\\
-    \block[minimum width=16em,text=darkgreen]{
+    \block[minimum width=16em,text=pilosa-green]{
       Operation log\\
-      \block[minimum width=15em,text=darkgreen]{
+      \block[minimum width=15em,text=pilosa-green]{
         Operation 0\\
-        1 \block[minimum width=13em,text=darkgreen]{Operation type 0}\\
-        8 \block[minimum width=13em,text=darkgreen]{Operation value 0}\\
-        4 \block[minimum width=13em,text=darkgreen]{Operation checksum 0}
+        1 \block[minimum width=13em,text=pilosa-green]{Operation type 0}\\
+        8 \block[minimum width=13em,text=pilosa-green]{Operation value 0}\\
+        4 \block[minimum width=13em,text=pilosa-green]{Operation checksum 0}
       }\\
       \vdots \\
       $\times N_{ops}$
@@ -79,13 +80,13 @@
   % "at (6,10)" positions this node. without this the positioning is screwy, not
   % sure why. also not sure what the units or origin are - it seems to be
   % relative to the most recently placed node...
-  \tikz\node at (6, 10) [thin,rounded corners,fill=white,text=darkblue,align=center,minimum width=1mm] (containers) {
+  \tikz\node at (6, 10) [thin,rounded corners,fill=white,text=pilosa-blue,align=center,minimum width=1mm] (containers) {
     \quad \block[]{
       Array container\\
       2 \block[minimum width=13em]{Value 0}\\
       2 \block[minimum width=13em]{Value 1}\\
       \vdots\\
-      $\times$ \textcolor{red}{cardinality}
+      $\times$ \textcolor{pilosa-red}{cardinality}
     }\\
     \\
     \quad \block[minimum width=50mm]{
@@ -102,7 +103,7 @@
       4 \block[minimum width=13em]{Run 0}\\
       4 \block[minimum width=13em]{Run 1}\\
       \vdots\\
-      $\times$ \textcolor{red}{$N_{runs}$}
+      $\times$ \textcolor{pilosa-red}{$N_{runs}$}
     }\\
     \vspace{6cm}
   };
