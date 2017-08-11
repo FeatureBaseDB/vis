@@ -1,14 +1,7 @@
 \documentclass{article}
 \usepackage{tikz}
-\usepackage{hyperref}
-\usetikzlibrary{patterns} % for cross-hatch
-\renewcommand{\familydefault}{\sfdefault} % for sans font
+\usepackage{standalone}
 \begin{document}
-
-\definecolor{pilosa-lightblue}{HTML}{E4EFF4}
-\definecolor{pilosa-blue}{HTML}{3C5F8D}
-\definecolor{pilosa-green}{HTML}{1DB598}
-\definecolor{pilosa-red}{HTML}{ff2B2B}
 
 These diagrams represent how Roaring chooses container types to minimize storage
 size, based on cardinality and runCount.\\

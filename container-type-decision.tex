@@ -1,3 +1,16 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{patterns} % for cross-hatch
+\renewcommand{\familydefault}{\sfdefault} % for sans font
+\begin{document}
+
+% TODO put color definitions in a style file or something
+\definecolor{pilosa-lightblue}{HTML}{E4EFF4}
+\definecolor{pilosa-blue}{HTML}{3C5F8D}
+\definecolor{pilosa-green}{HTML}{1DB598}
+\definecolor{pilosa-red}{HTML}{ff2B2B}
+
+
 \begin{tikzpicture}
   % draw filled regions first so lines are overlaid
   %\draw [pattern=north west lines, pattern color=gray] (0, 0) -- (4, 4) -- (8, 4) -- (8, 8) -- (0, 8) -- (0, 0);
@@ -39,3 +52,6 @@
   %\draw [dashed] (4, 4) -- (9, 9);
   %\draw [dashed] (4, 4) -- (9, 4);
 \end{tikzpicture}
+
+
+\end{document}
