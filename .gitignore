@@ -4,3 +4,5 @@
 *.gz
 *.fls
 *.fdb_latexmk
+*.out
+auto/
