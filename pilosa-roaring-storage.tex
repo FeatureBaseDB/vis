@@ -32,17 +32,18 @@
       % "\hskip 2 em" adds horizontal space to account for the different text widths
       % of "2" and "\frac{}{}"
       % \block[minimum width=45mm]{Magic number \tikz\node[draw,minimum width=1mm,fill=darkblue,text=white]{2};}\\
-      \hskip 2em 2 \block[minimum width=12em]{Magic number}\\
-      \hskip 2em 2 \block[minimum width=12em,text=darkgreen]{Storage version}\\
+      2 \block[minimum width=14em]{Magic number}\\
+      2 \block[minimum width=14em,text=darkgreen]{Storage version}\\
       % "\," is a space
-      \hskip 2em 4 \block[minimum width=12em]{$\textcolor{red}{N_c}$\textcolor{darkblue}{\, = Container count}}\\
-      \hskip 0.3em \textcolor{darkblue}{$\frac{\textcolor{red}{N_c}+7}{8}$} \block[minimum width=12em]{runFlagBitset}
+      4 \block[minimum width=14em]{$\textcolor{red}{N_c}$\textcolor{darkblue}{\, = Container count}}
+      % \hskip 0.3em \textcolor{darkblue}{$\frac{\textcolor{red}{N_c}+7}{8}$} \block[minimum width=12em]{runFlagBitset}
     }\\
     \block[minimum width=16em]{
       Descriptive header\\
       \block[minimum width=15em]{
         8 \block[minimum width=13em]{Key 0}\\
-        4 \block[minimum width=13em]{\textcolor{red}{Cardinality 0}}
+        2 \block[minimum width=13em,text=darkgreen]{{Container type 0}}\\
+        2 \block[minimum width=13em]{\textcolor{red}{Cardinality 0}}
       }\\
       \vdots \\
       $\times \textcolor{red}{N_c}$
@@ -73,8 +74,6 @@
       $\times N_{ops}$
     }
   };\\
-
-  % TODO: add more horizontal space between the two main blocks
 
   % containers
   % "at (6,10)" positions this node. without this the positioning is screwy, not
@@ -108,5 +107,6 @@
     \vspace{6cm}
   };
 
-\end{tikzpicture}
+\end{tikzpicture}\\
+
 \end{document}
