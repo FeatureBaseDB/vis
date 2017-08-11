@@ -10,11 +10,20 @@
 \definecolor{pilosa-green}{HTML}{1DB598}
 \definecolor{pilosa-red}{HTML}{ff2B2B}
 
+These diagrams represent how Roaring chooses container types to minimize storage
+size, based on cardinality and runCount.\\
+
 Pilosa actual:\\
 \input{container-type-decision.tex}
 
 With inverse arrays:\\
 \input{container-type-decision-with-inverse.tex}
+
+
+$M$ is the maximum number of bits in a container (\texttt{maxContainerVal+1}).
+Note that the figure is not to scale; $M$ is actually much larger than
+RunMaxSize and ArrayMaxSize. The 2:1 ratio of ArrayMaxSize and RunMaxSize is
+accurate, however.\\
 
 \end{document}
 
