@@ -1,0 +1,20 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usetikzlibrary{patterns} % for cross-hatch
+\renewcommand{\familydefault}{\sfdefault} % for sans font
+\begin{document}
+
+\definecolor{pilosa-lightblue}{HTML}{E4EFF4}
+\definecolor{pilosa-blue}{HTML}{3C5F8D}
+\definecolor{pilosa-green}{HTML}{1DB598}
+\definecolor{pilosa-red}{HTML}{ff2B2B}
+
+Pilosa actual:\\
+\input{container-type-decision.tex}
+
+With inverse arrays:\\
+\input{container-type-decision-with-inverse.tex}
+
+\end{document}
+

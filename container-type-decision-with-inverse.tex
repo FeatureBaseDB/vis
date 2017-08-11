@@ -3,11 +3,13 @@
   %\draw [pattern=north west lines, pattern color=gray] (0, 0) -- (4, 4) -- (8, 4) -- (8, 8) -- (0, 8) -- (0, 0);
   %\draw [fill=gray] (0, 0) -- (4, 4) -- (8, 0) -- (8, 8) -- (0, 8) -- (0, 0);
   \draw [fill=gray] (0, 0) -- (4, 4) -- (8, 0) -- (8, 4) -- (0, 4) -- (0, 0);
-  \fill [pilosa-red] (0, 0) -- (2, 1) -- (7, 1) -- (8, 0) -- (0, 0);
-  \fill [pilosa-blue] (2, 1) -- (2, 2) -- (4, 4) -- (7, 1) -- (2, 1);
+  \fill [pilosa-red] (0, 0) -- (2, 1) -- (6, 1) -- (8, 0) -- (0, 0);
+  \fill [pilosa-blue] (2, 1) -- (2, 2) -- (4, 4) -- (6, 2) -- (6, 1) -- (2, 1);
   \fill [pilosa-green] (0, 0) -- (2, 1) -- (2, 2) -- (0, 0);
+  \fill [pilosa-green] (8, 0) -- (6, 1) -- (6, 2) -- (8, 0);
   % region labels
   \node [rotate=26.5] at (1.5, 1) {array};
+  \node [rotate=-26.5] at (6.6, 1) {iarray};
   \node at (3, .5) {runs};
   \node at (5, 1.5) {bitmap};
   \node at (5.5, 3.5) {impossible};
@@ -23,19 +25,4 @@
   \draw [dotted] (0,1) node [left] {RunMaxSize} -- (2,1) -- (2,0) node [below] {ArrayMaxSize};
   \draw [dotted] (2, 1) -- (8, 4);
   \draw [dashed] (4, 0) -- (4, 4);
-
-
-  % cruft
-  %\draw (0, 4) node [left] {$\frac{M}{2}$};
-  %\draw [solid] (8, 0) -- (8, 4);
-  %\draw [dashed] (0, 4) -- (8, 4);
-  %\draw [dotted] (2, 2) -- (2, 9);
-  %\draw [solid] (9, 1) -- (2, 1) -- (2, 9);
-  %\draw [solid] (0, 0) -- (2, 1);
-  %\draw [solid, line width=2] (0, 0) -- (2, 1) -- (8, 1) -- (8, 0) -- (0, 0);
-  %\draw [solid, line width=2] (0, 0) -- (2, 2) -- (2, 1);
-  %\draw [solid, line width=2] (2, 2) -- (4, 4) -- (8, 4) -- (8, 1);
-  %\draw [dashed] (0, 0) -- (4, 4);
-  %\draw [dashed] (4, 4) -- (9, 9);
-  %\draw [dashed] (4, 4) -- (9, 4);
 \end{tikzpicture}
