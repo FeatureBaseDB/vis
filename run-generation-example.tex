@@ -1,0 +1,56 @@
+\documentclass[varwidth,convert]{standalone}
+\usepackage{tikz}
+\usepackage{relsize}
+\usepackage{mathtools}
+\usetikzlibrary{patterns} % for cross-hatch
+\renewcommand{\familydefault}{\sfdefault} % for sans font
+\begin{document}
+
+\definecolor{pilosa-lightblue}{HTML}{E4EFF4}
+\definecolor{pilosa-blue}{HTML}{3C5F8D}
+\definecolor{pilosa-green}{HTML}{1DB598}
+\definecolor{pilosa-red}{HTML}{ff2B2B}
+
+\begin{tikzpicture}
+  \node[rectangle, draw, fill=pilosa-lightblue] (b0) at (0, 0) {1};
+  % \draw (4, 0) -- (4, 4);
+  \node[rectangle, draw, fill=pilosa-lightblue, anchor=west] (b1) at (b0.east){1};
+  \node[rectangle, draw, fill=pilosa-lightblue, anchor=west] (b2) at (b1.east){1};
+  \node[rectangle, draw, fill=pilosa-lightblue, anchor=west] (b3) at (b2.east){1};
+  \node[rectangle, draw, fill=pilosa-lightblue, anchor=west] (b4) at (b3.east){1};
+  \node[rectangle, draw, anchor=west] (b5) at (b4.east){0};
+  \node[rectangle, draw, anchor=west] (b6) at (b5.east){0};
+  \node[rectangle, draw, anchor=west] (b7) at (b6.east){0};
+  \node[rectangle, draw, fill=pilosa-lightblue, anchor=west] (b8) at (b7.east){1};
+  \node[rectangle, draw, fill=pilosa-lightblue, anchor=west] (b9) at (b8.east){1};
+  \node[rectangle, draw, fill=pilosa-lightblue, anchor=west] (b10) at (b9.east){1};
+  \node[rectangle, draw, anchor=west] (b11) at (b10.east){0};
+  \node[rectangle, draw, anchor=west] (b12) at (b11.east){0};
+  \node[rectangle, draw, fill=pilosa-lightblue, anchor=west] (b13) at (b12.east){1};
+  \node[rectangle, draw, fill=pilosa-lightblue, anchor=west] (b14) at (b13.east){1};
+  \node[rectangle, draw, fill=pilosa-lightblue, anchor=west] (b15) at (b14.east){1};
+  \node[rectangle, draw, anchor=west] (b16) at (b15.east){0};
+
+  \node (l0) at (0, -.75){$(x_0)$};
+  \node (l1) at (1, .75){$(x_0{+}y_0)$};
+  \node (l2) at (2, -1.5){$(x_0{+}y_0{+}x_1)$};
+  \node (l3) at (3, 1.5){$(x_0{+}y_0{+}x_1{+}y_1)$};
+  \node (l4) at (5, -2.25){$(x_0{+}y_0{+}x_1{+}y_1{+}x_2)$};
+  \node (l5) at (5, 2.25){$(x_0{+}y_0{+}x_1{+}y_1{+}x_2{+}y_2)$};
+  % {+} is more compact than + because it is an "ordinal symbol" instead of an operator
+
+  \draw[-] (b0.south) -- (l0);
+  \draw[-] (b5.north) -- (l1);
+  \draw[-] (b8.south) -- (l2);
+  \draw[-] (b11.north) -- (l3);
+  \draw[-] (b13.south) -- (l4);
+  \draw[-] (b16.north) -- (l5);
+
+  
+\end{tikzpicture}\\
+
+\hskip 4em $\mathlarger{\sum}_{i=1}^{N_R} x_i = N$, \hskip 2em $\mathlarger{\sum}_{i=1}^{N_R} y_i = M-N$ \\
+
+
+\end{document}
+

@@ -1,0 +1,20 @@
+\documentclass{standalone}
+\renewcommand{\familydefault}{\sfdefault} % for sans font
+\usepackage{mathtools} % for controlling vertical spacing with arraystretch
+\begin{document}
+
+{\def\arraystretch{1.25}\tabcolsep=10pt
+\begin{tabular}{l | c | c | c}
+  Symbol & Code & Description & Numeric value \\
+  \hline
+  $M$   & \texttt{maxContainerVal+1} & maximum number of elements allowed in a container of any type   & $2^{16} = 65536$ \\
+  $A$   &                            & size in bits of a single array element, i.e. \texttt{int16}     & $16$ \\
+  $R$   &                            & size in bits of each of the two numbers used to represent a run & $16$ \\
+  $M_A$ & \texttt{ArrayMaxSize}      & maximum number of elements allowed in an array container        & $M_A = \frac{M}{A} = 4096$ \\
+  $M_R$ & \texttt{RunMaxSize}        & maximum number of runs allowed in an RLE container              & $M_R = \frac{M}{2R} = 2048$ \\
+  $N$   & \texttt{c.n}               & cardinality: actual number of elements present in a container (\texttt{c})   & $N \in \{1, 2, ..., M_A\}$ \\
+  $N_R$ & \texttt{c.runCount()}      & runCount: actual number of runs present in a container          & $N_R \in \{1, 2, ..., M_R\}$ \\
+\end{tabular}
+}
+
+\end{document}
