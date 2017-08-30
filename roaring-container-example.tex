@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{standalone}
 \usepackage[table]{xcolor} % for table cell colors
 \renewcommand{\familydefault}{\sfdefault} % for sans font
 \begin{document}
@@ -10,16 +10,24 @@
 
 % https://tex.stackexchange.com/questions/62573/using-underbrace-with-table-columns
 
-\hskip-4.0cm
+% \hskip-4.0cm
 \begin{tabular}{c | c c c c c c c c c c c c c c c c | c}
-  ID     & 0  & 1  & 2  & 3  & 4 & 5 & 6  & 7  & 8 & 9  & 10  & 11 & 12 & 13 & 14 & 15 & Size\\
+  ID     & 0  & 1  & 2  & 3  & 4 & 5 & 6  & 7  & 8 & 9  & 10  & 11 & 12 & 13 & 14 & 15 & Bytes\\
   \hline
-  Array  & 0, & 1, & 2, & 3, &   &   & 6, & 7, &   & 9, & 10, &    &    &    & 14 &    & 9$\times$2 = 18 bytes\\
+  Array  & 0, & 1, & 2, & 3, &   &   & 6, & 7, &   & 9, & 10, &    &    &    & 14 &    & 9$\times$2 = 18\\
          &    &    &    &    &   &   &    &    &   &    &     &    &    &    &    &    & \\
-  Bitmap & 1  & 1  & 1  & 1  & 0 & 0 & 1  & 1  & 0 & 1  &  1  & 0  & 0  & 0  & 1  & 0  & 2 bytes\\
+  Bitmap & 1  & 1  & 1  & 1  & 0 & 0 & 1  & 1  & 0 & 1  &  1  & 0  & 0  & 0  & 1  & 0  & 2\\
          & \omit\span\omit\span\omit\span\omit\mathstrut\upbracefill & & &\omit\span\omit\mathstrut\upbracefill & &\omit\span\omit\mathstrut\upbracefill & & & &\mathstrut\upbracefill & &  \\
-  RLE    & \multicolumn{4}{c}{[0, 3]}     &   &   & \multicolumn{2}{c}{[6, 7]} &   & \multicolumn{2}{c}{[9, 10]} &    &    &    & [14, 14]&& 4$\times$2$\times$2 = 16 bytes\\
+  RLE    & \multicolumn{4}{c}{[0, 3]}     &   &   & \multicolumn{2}{c}{[6, 7]} &   & \multicolumn{2}{c}{[9, 10]} &    &    &    & [14, 14]&& 4$\times$2$\times$2 = 16\\
 \end{tabular}
+
+%\begin{tabular}{c | c c c c}
+%  ID     & 0  & 1  & 2  & 3\\
+%  \hline
+%  Array  & 0, & 1, & 2, & 3\\
+%  Bitmap & 1  & 1  & 1  & 1\\
+%\end{tabular}
+
 
 \end{document}
 
