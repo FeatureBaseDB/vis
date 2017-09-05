@@ -1,4 +1,4 @@
-`pdflatex something.tex` to compile at CLI
+`pdflatex something.tex` to compile at CLI (check out https://www.latex-project.org/get/ to install)
 
 `SPC m b` to *b*uild in latex-mode in spacemacs
 
