@@ -1,3 +1,3 @@
 - `container-theory/` - python+plotly code to generate plots for https://www.pilosa.com/blog/universe-map/
-- `latex-figures/` - latex source to diagrams for https://www.pilosa.com/blog/universe-map/
+- `latex/` - LaTeX source, including diagrams for https://www.pilosa.com/blog/universe-map/
 - `multi-cloud-taxi-benchmarks/` - python+matplotlib code to generate benchmark result plots for https://www.pilosa.com/blog/why-oci/
