@@ -30,8 +30,8 @@ it's sort of a degenerate case, but it still makes sense:
 \begin{itemize}
 \item $\left(\sum\limits_{a\in \{v\}}a\right) = v$ - a sum of one number is that number.\\
 \item $\left(\prod\limits_{a\in \{v\}}a\right) = v$ - a product of one number is that number.\\
-\item $\left(\bigcup\limits_{a\in \{v\}}a\right) = v$ - a union of one set is that set.\\
-\item $\left(\bigcap\limits_{a\in \{v\}}a\right) = v$ - an intersection of one set is that set.\\
+\item $\left(\bigcup\limits_{a\in \{v\}}a\right) = \{v\}$ - a union of one set is that set.\\
+\item $\left(\bigcap\limits_{a\in \{v\}}a\right) = \{v\}$ - an intersection of one set is that set.\\
 \end{itemize}
 
 What about when $n = 0$, or $A=\{\}$? This is where things get contentious - not everyone can agree on the meaning, even for summation. I will concede that these operations can be defined in whatever way you like. But there is only one definition that is sensible and consistent:
@@ -75,7 +75,7 @@ l.fold(0)(_ + _)
 0
 \end{verbatim}
 
-Similar arguments hold for the product. The multiplicative identity is $1$, using that as the base value is sensible and uniquely consistent. In addition to being self-consistent, the product and sum operations should be consistent \textit{with each other}. The logarithm of a product is a sum, and $\log(1) = 0$, so the base value of $0$ for sum implies that the base value for product should be $1$.
+Similar arguments hold for the product. The multiplicative identity is $1$; using that as the base value is sensible and uniquely consistent. In addition to being self-consistent, the product and sum operations should be consistent \textit{with each other}. The logarithm of a product is a sum, and $\log(1) = 0$, so the base value of $0$ for sum implies that the base value for product should be $1$.
 
 The \texttt{prod} built-in function is less common, but when it's there, this is how it works:
 
@@ -88,7 +88,7 @@ prod([])  # octave
 1
 \end{verbatim}
 
-There is a common point of confusion here: ``how can a product with zero be anything besides zero?'' Zero \textit{is not being multiplied}. An empty product is a multiplication of $N$ numerical values, where $N=0$. None of those values can be zero, because there aren't any.
+There is a common point of confusion here: ``how can a product with zero be anything besides zero?'' Zero \textit{is not being multiplied}. An empty product is a multiplication of $N$ numerical values, where $N=0$. None of those values can be equal to zero, because there aren't any.
 
 \section{Empty set operations}
 With clear notation and motivation, we can move on to set operations. What should an empty union be? Think about the base value, and consistency, and it should be clear that the correct answer is the empty set. If the union operation proceeds by unioning sets sequentially with a base value, then the base value must be $\{\}$, because $\{\} \cup A = A$. The empty set is the identity element of the union operation. Thus:
@@ -144,6 +144,6 @@ It should be obvious now how to negate the empty set:
 
 $\xi$ is simply the set of all set elements that are allowed in the context. Pilosa works with sets of integers in the range $[0, 2^{64}-1]$, so Pilosa's $\xi$ is simply the set of all 64-bit integers, and the idea of negating the empty set is perfectly sound, in theory. 
 
-Practically, returning a bitmap with almost every bit set is another matter, which is why Pilosa currently responds to an empty intersect with an error.
+Practically, returning a bitmap with almost every bit set is another matter, which is why Pilosa currently responds to an empty \texttt{Intersect} with an error.
 
 \end{document}
