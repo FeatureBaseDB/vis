@@ -1,0 +1,13 @@
+func,depth,sparsity,ns
+set,4,1,18244
+set,4,70000,16794
+set,8,1,35274
+set,8,70000,30591
+set,16,1,63375
+set,16,70000,55790
+import,4,1,609
+import,4,70000,222
+import,8,1,1237
+import,8,70000,549
+import,16,1,2505
+import,16,70000,1070
