@@ -1,0 +1,9 @@
+cloud,instance_type,benchmark,mean
+AWS,r5d.12xlarge,BenchmarkImportRoaringConcurrent/50Rows16Concurrency,9231527
+OCI,VM.DenseIO2.16,BenchmarkImportRoaringConcurrent/50Rows16Concurrency,10076022
+OCI,BM.HPC2.36,BenchmarkImportRoaringConcurrent/50Rows16Concurrency,13143035
+AWS,c5.9xlarge,BenchmarkImportRoaringConcurrent/50Rows16Concurrency,18890101
+AWS,c4.8xlarge,BenchmarkImportRoaringConcurrent/50Rows16Concurrency,42940287
+Azure,Standard_F32s_v2,BenchmarkImportRoaringConcurrent/50Rows16Concurrency,67214162
+Azure,Standard_E64s_v3,BenchmarkImportRoaringConcurrent/50Rows16Concurrency,84124614
+OCI,BM.Standard2.52,BenchmarkImportRoaringConcurrent/50Rows16Concurrency,103737875

@@ -1,0 +1,11 @@
+cloud,instance_type,benchmark,mean
+AWS,c5.9xlarge,BenchmarkFragment_IntersectionCount,4000
+OCI,BM.HPC2.36,BenchmarkFragment_IntersectionCount,4226
+AWS,r5d.12xlarge,BenchmarkFragment_IntersectionCount,4371
+Azure,Standard_E64s_v3,BenchmarkFragment_IntersectionCount,4840
+Azure,Standard_F32s_v2,BenchmarkFragment_IntersectionCount,4911
+Azure,Standard_F16,BenchmarkFragment_IntersectionCount,5709
+OCI,VM.Standard2.16,BenchmarkFragment_IntersectionCount,5762
+OCI,VM.DenseIO2.16,BenchmarkFragment_IntersectionCount,5796
+AWS,c4.8xlarge,BenchmarkFragment_IntersectionCount,5908
+OCI,BM.Standard2.52,BenchmarkFragment_IntersectionCount,6693

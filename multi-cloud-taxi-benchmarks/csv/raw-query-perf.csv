@@ -1,0 +1,9 @@
+cloud,instance_type,benchmark,mean
+AWS,r5d.12xlarge,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=passenger_count))",6793912
+Azure,Standard_F32s_v2,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=passenger_count))",7233742
+AWS,c5.9xlarge,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=passenger_count))",7873907
+OCI,VM.Standard2.16,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=passenger_count))",10638452
+OCI,BM.HPC2.36,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=passenger_count))",10899637
+OCI,VM.DenseIO2.16,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=passenger_count))",12304847
+Azure,Standard_F16,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=passenger_count))",12893835
+Azure,Standard_E64s_v3,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=passenger_count))",16455342

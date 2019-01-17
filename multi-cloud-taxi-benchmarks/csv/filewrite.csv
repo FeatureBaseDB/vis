@@ -1,0 +1,7 @@
+cloud,instance_type,benchmark,mean
+OCI,VM.DenseIO2.16,BenchmarkFileWrite/Rows100000,3802485
+AWS,r5d.12xlarge,BenchmarkFileWrite/Rows100000,4210909
+OCI,BM.HPC2.36,BenchmarkFileWrite/Rows100000,4586146
+AWS,c5.9xlarge,BenchmarkFileWrite/Rows100000,8215500
+AWS,c4.8xlarge,BenchmarkFileWrite/Rows100000,8569222
+Azure,Standard_F32s_v2,BenchmarkFileWrite/Rows100000,39294927

@@ -1,0 +1,9 @@
+cloud,instance_type,benchmark,mean,dpmq
+OCI,VM.Standard2.16,"TopN(dist_miles, Row(pickup_year=2011))",9508091,8.088216077333333333333333
+Azure,Standard_F32s_v2,"TopN(dist_miles, Row(pickup_year=2011))",9030896,10.159758
+AWS,c5.9xlarge,"TopN(dist_miles, Row(pickup_year=2011))",9134669,11.646702975
+AWS,r5d.12xlarge,"TopN(dist_miles, Row(pickup_year=2011))",6825084,13.10416128
+OCI,VM.DenseIO2.16,"TopN(dist_miles, Row(pickup_year=2011))",9152389,15.5590613
+Azure,Standard_F16,"TopN(dist_miles, Row(pickup_year=2011))",15162585,20.21678
+OCI,BM.HPC2.36,"TopN(dist_miles, Row(pickup_year=2011))",14873409,22.3101135
+AWS,c4.8xlarge,"TopN(dist_miles, Row(pickup_year=2011))",23505508,31.164386023333333333333333
