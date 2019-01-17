@@ -1,3 +1,5 @@
+- `container-stats/` - python+plotly code to plot real-world data in container-space. some data included
 - `container-theory/` - python+plotly code to generate plots for https://www.pilosa.com/blog/universe-map/
 - `latex/` - LaTeX source, including diagrams for https://www.pilosa.com/blog/universe-map/
+- `microbenchmarks/` - simple one-off script to plot the results of `go test -run=XXX -bench=BenchmarkFragment.*Value`, run on a macbook
 - `multi-cloud-taxi-benchmarks/` - python+matplotlib code to generate benchmark result plots for https://www.pilosa.com/blog/why-oci/
