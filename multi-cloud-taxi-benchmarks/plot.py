@@ -9,7 +9,11 @@ color_map = {  # inspired by HO's mockup
     'AWS': '#fd8705',
     'OCI': '#f20007',
     'Azure': '#2f60ce',
+    'GCP': '#4cb944',   # '#6eeb83'
+    # 'IBM': '#5f0f40',
 }
+# https://coolors.co/f20007-2f60ce-fd8705-5f0f40-4cb944
+# https://coolors.co/f20007-2f60ce-fd8705-6eeb83-5f0f40
 
 datas = [
     # scale_index: manually select units prefix
