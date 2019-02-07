@@ -2,8 +2,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import re
 
-# PLOT, PNG = True, False
-PLOT, PNG = False, True
+PLOT, PNG = True, False
+# PLOT, PNG = False, True
 # PLOT, PNG = True, True
 # PLOT, PNG = False, False
 
@@ -14,7 +14,7 @@ screen = 2880, 1800  # macbook
 dpi = 300  # 100 -> 640x480 from default figure size
 figsize = (16, 8)  # inches
 fontsize = 20
-ax_width = 0.5
+ax_width = 0.5  # in figure units, [0, 1]x[0, 1]
 
 color_map = {  # inspired by HO's mockup
     'AWS': '#fd8705',
@@ -37,12 +37,12 @@ specs = [
         'csv_fname': 'csv/raw-performance-all--benchmarks-QueryResult.csv',
         'value_field': 'mean',
         'value_label': '',
-        'out_dir': 'redux-perf',
+        'out_dir': 'png/redux-perf',
     }, {
         'csv_fname': 'csv/dpmq-all-queries-benchmarks-QueryResult.csv',
         'value_field': 'dpmq',
         'value_label': '$/Megaquery',
-        'out_dir': 'redux-dpmq',
+        'out_dir': 'png/redux-dpmq',
     }
 ]
 
@@ -58,7 +58,6 @@ def slugify(s):
 
 def main(spec):
     df = pd.read_csv(spec['csv_fname'])
-    m = 0
     for title in df['benchmark'].unique():
         # sort by value
         bms = df[df['benchmark'] == title].sort_values(by=[spec['value_field']])
@@ -73,9 +72,9 @@ def main(spec):
         if min_val > 1e8:
             scale, prefix = units[3]
 
-        if spec['val_label']:
+        if spec['value_label']:
             # dpmq
-            value_label = spec['val_label']
+            value_label = spec['value_label']
         else:
             # perf
             value_label = prefix + 's/operation (mean)'
@@ -125,7 +124,7 @@ def main(spec):
         ax.set_position([.9-ax_width, 0.15, ax_width, 0.75])
         plt.legend(fontsize=fontsize)
 
-        img_file = spec['dir_prefix'] + '/' + slugify(title) + '.png'
+        img_file = spec['out_dir'] + '/' + slugify(title) + '.png'
         # print('    <div class=box><a href="%s"><img src="%s"><p>%s</p></a></div>' % (img_file, img_file, title))
         if PNG:
             plt.savefig(img_file, dpi=dpi, bbox_inches='tight')
@@ -135,8 +134,6 @@ def main(spec):
             # debug()
 
         plt.close(fig)
-        m += 1
-        # break
 
 main(specs[0])
-# main(specs[1])
+main(specs[1])
