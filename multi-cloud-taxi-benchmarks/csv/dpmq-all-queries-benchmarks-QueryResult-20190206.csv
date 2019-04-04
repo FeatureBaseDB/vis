@@ -1,0 +1,121 @@
+cloud,config,benchmark,dpmq,cluster_size
+Azure,Standard_F32s_v2-ubuntu,"Count(Intersect(Row(cab_type=1),Union(Row(pickup_month=1),Row(pickup_month=2),Row(pickup_month=11),Row(pickup_month=12)),Union(Row(pickup_day=4),Row(pickup_day=5),Row(pickup_day=6)),Union(Row(dist_miles=0),Row(dist_miles=1),Row(dist_miles=2),Row(dist_miles=3),Row(dist_miles=4),Row(dist_miles=5),Row(dist_miles=6),Row(dist_miles=7),Row(dist_miles=8),Row(dist_miles=9),Row(dist_miles=10),Row(dist_miles=11),Row(dist_miles=12),Row(dist_miles=13),Row(dist_miles=14),Row(dist_miles=15),Row(dist_miles=16),Row(dist_miles=17),Row(dist_miles=18),Row(dist_miles=19),Row(dist_miles=20))))",160.295511375,3
+AWS,c5.9xlarge-ubuntu,"Count(Intersect(Row(cab_type=1),Union(Row(pickup_month=1),Row(pickup_month=2),Row(pickup_month=11),Row(pickup_month=12)),Union(Row(pickup_day=4),Row(pickup_day=5),Row(pickup_day=6)),Union(Row(dist_miles=0),Row(dist_miles=1),Row(dist_miles=2),Row(dist_miles=3),Row(dist_miles=4),Row(dist_miles=5),Row(dist_miles=6),Row(dist_miles=7),Row(dist_miles=8),Row(dist_miles=9),Row(dist_miles=10),Row(dist_miles=11),Row(dist_miles=12),Row(dist_miles=13),Row(dist_miles=14),Row(dist_miles=15),Row(dist_miles=16),Row(dist_miles=17),Row(dist_miles=18),Row(dist_miles=19),Row(dist_miles=20))))",190.8303312,3
+GCP,custom-36-73728-ubuntu,"Count(Intersect(Row(cab_type=1),Union(Row(pickup_month=1),Row(pickup_month=2),Row(pickup_month=11),Row(pickup_month=12)),Union(Row(pickup_day=4),Row(pickup_day=5),Row(pickup_day=6)),Union(Row(dist_miles=0),Row(dist_miles=1),Row(dist_miles=2),Row(dist_miles=3),Row(dist_miles=4),Row(dist_miles=5),Row(dist_miles=6),Row(dist_miles=7),Row(dist_miles=8),Row(dist_miles=9),Row(dist_miles=10),Row(dist_miles=11),Row(dist_miles=12),Row(dist_miles=13),Row(dist_miles=14),Row(dist_miles=15),Row(dist_miles=16),Row(dist_miles=17),Row(dist_miles=18),Row(dist_miles=19),Row(dist_miles=20))))",189.628135144,3
+GCP,custom-36-73728-discounted-ubuntu,"Count(Intersect(Row(cab_type=1),Union(Row(pickup_month=1),Row(pickup_month=2),Row(pickup_month=11),Row(pickup_month=12)),Union(Row(pickup_day=4),Row(pickup_day=5),Row(pickup_day=6)),Union(Row(dist_miles=0),Row(dist_miles=1),Row(dist_miles=2),Row(dist_miles=3),Row(dist_miles=4),Row(dist_miles=5),Row(dist_miles=6),Row(dist_miles=7),Row(dist_miles=8),Row(dist_miles=9),Row(dist_miles=10),Row(dist_miles=11),Row(dist_miles=12),Row(dist_miles=13),Row(dist_miles=14),Row(dist_miles=15),Row(dist_miles=16),Row(dist_miles=17),Row(dist_miles=18),Row(dist_miles=19),Row(dist_miles=20))))",132.729677266666666666666666,3
+AWS,c5.9xlarge-ec2-user,"Count(Intersect(Row(cab_type=1),Union(Row(pickup_month=1),Row(pickup_month=2),Row(pickup_month=11),Row(pickup_month=12)),Union(Row(pickup_day=4),Row(pickup_day=5),Row(pickup_day=6)),Union(Row(dist_miles=0),Row(dist_miles=1),Row(dist_miles=2),Row(dist_miles=3),Row(dist_miles=4),Row(dist_miles=5),Row(dist_miles=6),Row(dist_miles=7),Row(dist_miles=8),Row(dist_miles=9),Row(dist_miles=10),Row(dist_miles=11),Row(dist_miles=12),Row(dist_miles=13),Row(dist_miles=14),Row(dist_miles=15),Row(dist_miles=16),Row(dist_miles=17),Row(dist_miles=18),Row(dist_miles=19),Row(dist_miles=20))))",208.838873625,3
+OCI,VM.Standard2.16-ubuntu,"Count(Intersect(Row(cab_type=1),Union(Row(pickup_month=1),Row(pickup_month=2),Row(pickup_month=11),Row(pickup_month=12)),Union(Row(pickup_day=4),Row(pickup_day=5),Row(pickup_day=6)),Union(Row(dist_miles=0),Row(dist_miles=1),Row(dist_miles=2),Row(dist_miles=3),Row(dist_miles=4),Row(dist_miles=5),Row(dist_miles=6),Row(dist_miles=7),Row(dist_miles=8),Row(dist_miles=9),Row(dist_miles=10),Row(dist_miles=11),Row(dist_miles=12),Row(dist_miles=13),Row(dist_miles=14),Row(dist_miles=15),Row(dist_miles=16),Row(dist_miles=17),Row(dist_miles=18),Row(dist_miles=19),Row(dist_miles=20))))",141.754054669333333333333333,3
+OCI,VM.DenseIO2.16-ubuntu,"Count(Intersect(Row(cab_type=1),Union(Row(pickup_month=1),Row(pickup_month=2),Row(pickup_month=11),Row(pickup_month=12)),Union(Row(pickup_day=4),Row(pickup_day=5),Row(pickup_day=6)),Union(Row(dist_miles=0),Row(dist_miles=1),Row(dist_miles=2),Row(dist_miles=3),Row(dist_miles=4),Row(dist_miles=5),Row(dist_miles=6),Row(dist_miles=7),Row(dist_miles=8),Row(dist_miles=9),Row(dist_miles=10),Row(dist_miles=11),Row(dist_miles=12),Row(dist_miles=13),Row(dist_miles=14),Row(dist_miles=15),Row(dist_miles=16),Row(dist_miles=17),Row(dist_miles=18),Row(dist_miles=19),Row(dist_miles=20))))",295.5258835,3
+Azure,Standard_F16-ubuntu,"Count(Intersect(Row(cab_type=1),Union(Row(pickup_month=1),Row(pickup_month=2),Row(pickup_month=11),Row(pickup_month=12)),Union(Row(pickup_day=4),Row(pickup_day=5),Row(pickup_day=6)),Union(Row(dist_miles=0),Row(dist_miles=1),Row(dist_miles=2),Row(dist_miles=3),Row(dist_miles=4),Row(dist_miles=5),Row(dist_miles=6),Row(dist_miles=7),Row(dist_miles=8),Row(dist_miles=9),Row(dist_miles=10),Row(dist_miles=11),Row(dist_miles=12),Row(dist_miles=13),Row(dist_miles=14),Row(dist_miles=15),Row(dist_miles=16),Row(dist_miles=17),Row(dist_miles=18),Row(dist_miles=19),Row(dist_miles=20))))",277.506566666666666666666666,6
+AWS,r5d.12xlarge-ubuntu,"Count(Intersect(Row(cab_type=1),Union(Row(pickup_month=1),Row(pickup_month=2),Row(pickup_month=11),Row(pickup_month=12)),Union(Row(pickup_day=4),Row(pickup_day=5),Row(pickup_day=6)),Union(Row(dist_miles=0),Row(dist_miles=1),Row(dist_miles=2),Row(dist_miles=3),Row(dist_miles=4),Row(dist_miles=5),Row(dist_miles=6),Row(dist_miles=7),Row(dist_miles=8),Row(dist_miles=9),Row(dist_miles=10),Row(dist_miles=11),Row(dist_miles=12),Row(dist_miles=13),Row(dist_miles=14),Row(dist_miles=15),Row(dist_miles=16),Row(dist_miles=17),Row(dist_miles=18),Row(dist_miles=19),Row(dist_miles=20))))",930.26693376,2
+OCI,VM.Standard2.16-opc,"Count(Intersect(Row(cab_type=1),Union(Row(pickup_month=1),Row(pickup_month=2),Row(pickup_month=11),Row(pickup_month=12)),Union(Row(pickup_day=4),Row(pickup_day=5),Row(pickup_day=6)),Union(Row(dist_miles=0),Row(dist_miles=1),Row(dist_miles=2),Row(dist_miles=3),Row(dist_miles=4),Row(dist_miles=5),Row(dist_miles=6),Row(dist_miles=7),Row(dist_miles=8),Row(dist_miles=9),Row(dist_miles=10),Row(dist_miles=11),Row(dist_miles=12),Row(dist_miles=13),Row(dist_miles=14),Row(dist_miles=15),Row(dist_miles=16),Row(dist_miles=17),Row(dist_miles=18),Row(dist_miles=19),Row(dist_miles=20))))",429.615139330666666666666666,3
+OCI,BM.HPC2.36-ubuntu,"Count(Intersect(Row(cab_type=1),Union(Row(pickup_month=1),Row(pickup_month=2),Row(pickup_month=11),Row(pickup_month=12)),Union(Row(pickup_day=4),Row(pickup_day=5),Row(pickup_day=6)),Union(Row(dist_miles=0),Row(dist_miles=1),Row(dist_miles=2),Row(dist_miles=3),Row(dist_miles=4),Row(dist_miles=5),Row(dist_miles=6),Row(dist_miles=7),Row(dist_miles=8),Row(dist_miles=9),Row(dist_miles=10),Row(dist_miles=11),Row(dist_miles=12),Row(dist_miles=13),Row(dist_miles=14),Row(dist_miles=15),Row(dist_miles=16),Row(dist_miles=17),Row(dist_miles=18),Row(dist_miles=19),Row(dist_miles=20))))",790.213824,2
+OCI,BM.HPC2.36-opc,"Count(Intersect(Row(cab_type=1),Union(Row(pickup_month=1),Row(pickup_month=2),Row(pickup_month=11),Row(pickup_month=12)),Union(Row(pickup_day=4),Row(pickup_day=5),Row(pickup_day=6)),Union(Row(dist_miles=0),Row(dist_miles=1),Row(dist_miles=2),Row(dist_miles=3),Row(dist_miles=4),Row(dist_miles=5),Row(dist_miles=6),Row(dist_miles=7),Row(dist_miles=8),Row(dist_miles=9),Row(dist_miles=10),Row(dist_miles=11),Row(dist_miles=12),Row(dist_miles=13),Row(dist_miles=14),Row(dist_miles=15),Row(dist_miles=16),Row(dist_miles=17),Row(dist_miles=18),Row(dist_miles=19),Row(dist_miles=20))))",896.7645195,2
+Azure,Standard_E64s_v3-ubuntu,"Count(Intersect(Row(cab_type=1),Union(Row(pickup_month=1),Row(pickup_month=2),Row(pickup_month=11),Row(pickup_month=12)),Union(Row(pickup_day=4),Row(pickup_day=5),Row(pickup_day=6)),Union(Row(dist_miles=0),Row(dist_miles=1),Row(dist_miles=2),Row(dist_miles=3),Row(dist_miles=4),Row(dist_miles=5),Row(dist_miles=6),Row(dist_miles=7),Row(dist_miles=8),Row(dist_miles=9),Row(dist_miles=10),Row(dist_miles=11),Row(dist_miles=12),Row(dist_miles=13),Row(dist_miles=14),Row(dist_miles=15),Row(dist_miles=16),Row(dist_miles=17),Row(dist_miles=18),Row(dist_miles=19),Row(dist_miles=20))))",1272.22306625,2
+OCI,BM.Standard2.52-ubuntu,"Count(Intersect(Row(cab_type=1),Union(Row(pickup_month=1),Row(pickup_month=2),Row(pickup_month=11),Row(pickup_month=12)),Union(Row(pickup_day=4),Row(pickup_day=5),Row(pickup_day=6)),Union(Row(dist_miles=0),Row(dist_miles=1),Row(dist_miles=2),Row(dist_miles=3),Row(dist_miles=4),Row(dist_miles=5),Row(dist_miles=6),Row(dist_miles=7),Row(dist_miles=8),Row(dist_miles=9),Row(dist_miles=10),Row(dist_miles=11),Row(dist_miles=12),Row(dist_miles=13),Row(dist_miles=14),Row(dist_miles=15),Row(dist_miles=16),Row(dist_miles=17),Row(dist_miles=18),Row(dist_miles=19),Row(dist_miles=20))))",1165.567112741777777777777777,1
+OCI,BM.Standard2.52-opc,"Count(Intersect(Row(cab_type=1),Union(Row(pickup_month=1),Row(pickup_month=2),Row(pickup_month=11),Row(pickup_month=12)),Union(Row(pickup_day=4),Row(pickup_day=5),Row(pickup_day=6)),Union(Row(dist_miles=0),Row(dist_miles=1),Row(dist_miles=2),Row(dist_miles=3),Row(dist_miles=4),Row(dist_miles=5),Row(dist_miles=6),Row(dist_miles=7),Row(dist_miles=8),Row(dist_miles=9),Row(dist_miles=10),Row(dist_miles=11),Row(dist_miles=12),Row(dist_miles=13),Row(dist_miles=14),Row(dist_miles=15),Row(dist_miles=16),Row(dist_miles=17),Row(dist_miles=18),Row(dist_miles=19),Row(dist_miles=20))))",1242.333669211555555555555555,1
+AWS,c5.9xlarge-ubuntu,"Count(Intersect(Union(Row(pickup_year=2012), Row(pickup_year=2013)), Row(pickup_month=3)))",4.96032375,3
+Azure,Standard_F32s_v2-ubuntu,"Count(Intersect(Union(Row(pickup_year=2012), Row(pickup_year=2013)), Row(pickup_month=3)))",4.65576075,3
+OCI,VM.Standard2.16-ubuntu,"Count(Intersect(Union(Row(pickup_year=2012), Row(pickup_year=2013)), Row(pickup_month=3)))",3.592571194666666666666666,3
+GCP,custom-36-73728-ubuntu,"Count(Intersect(Union(Row(pickup_year=2012), Row(pickup_year=2013)), Row(pickup_month=3)))",5.601465244,3
+GCP,custom-36-73728-discounted-ubuntu,"Count(Intersect(Union(Row(pickup_year=2012), Row(pickup_year=2013)), Row(pickup_month=3)))",3.920729766666666666666666,3
+OCI,VM.Standard2.16-opc,"Count(Intersect(Union(Row(pickup_year=2012), Row(pickup_year=2013)), Row(pickup_month=3)))",3.78507536,3
+OCI,VM.DenseIO2.16-ubuntu,"Count(Intersect(Union(Row(pickup_year=2012), Row(pickup_year=2013)), Row(pickup_month=3)))",7.6129383,3
+AWS,c5.9xlarge-ec2-user,"Count(Intersect(Union(Row(pickup_year=2012), Row(pickup_year=2013)), Row(pickup_month=3)))",5.8236441,3
+Azure,Standard_F16-ubuntu,"Count(Intersect(Union(Row(pickup_year=2012), Row(pickup_year=2013)), Row(pickup_month=3)))",6.397014666666666666666666,6
+OCI,BM.HPC2.36-opc,"Count(Intersect(Union(Row(pickup_year=2012), Row(pickup_year=2013)), Row(pickup_month=3)))",8.2544295,2
+AWS,r5d.12xlarge-ubuntu,"Count(Intersect(Union(Row(pickup_year=2012), Row(pickup_year=2013)), Row(pickup_month=3)))",10.60913088,2
+OCI,BM.HPC2.36-ubuntu,"Count(Intersect(Union(Row(pickup_year=2012), Row(pickup_year=2013)), Row(pickup_month=3)))",12.895152,2
+Azure,Standard_E64s_v3-ubuntu,"Count(Intersect(Union(Row(pickup_year=2012), Row(pickup_year=2013)), Row(pickup_month=3)))",17.649984238888888888888888,2
+OCI,BM.Standard2.52-opc,"Count(Intersect(Union(Row(pickup_year=2012), Row(pickup_year=2013)), Row(pickup_month=3)))",14.219675025111111111111111,1
+OCI,BM.Standard2.52-ubuntu,"Count(Intersect(Union(Row(pickup_year=2012), Row(pickup_year=2013)), Row(pickup_month=3)))",15.662077192666666666666666,1
+AWS,r5d.12xlarge-ubuntu,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=passenger_count))",13.04431104,2
+Azure,Standard_F32s_v2-ubuntu,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=passenger_count))",8.13795975,3
+AWS,c5.9xlarge-ubuntu,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=passenger_count))",10.039231425,3
+GCP,custom-36-73728-ubuntu,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=passenger_count))",10.208104722,3
+GCP,custom-36-73728-discounted-ubuntu,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=passenger_count))",7.14513405,3
+AWS,c5.9xlarge-ec2-user,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=passenger_count))",11.2786398,3
+OCI,VM.Standard2.16-opc,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=passenger_count))",8.346095677333333333333333,3
+OCI,VM.Standard2.16-ubuntu,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=passenger_count))",9.049776501333333333333333,3
+OCI,BM.HPC2.36-ubuntu,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=passenger_count))",16.3494555,2
+OCI,VM.DenseIO2.16-ubuntu,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=passenger_count))",20.9182399,3
+Azure,Standard_F16-ubuntu,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=passenger_count))",17.19178,6
+OCI,BM.HPC2.36-opc,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=passenger_count))",19.570407,2
+Azure,Standard_E64s_v3-ubuntu,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=passenger_count))",33.175797843333333333333333,2
+OCI,BM.Standard2.52-ubuntu,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=passenger_count))",22.473841707777777777777777,1
+OCI,BM.Standard2.52-opc,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=passenger_count))",23.072945896,1
+AWS,r5d.12xlarge-ubuntu,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=pickup_month))",8.89077312,2
+Azure,Standard_F32s_v2-ubuntu,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=pickup_month))",5.515759125,3
+GCP,custom-36-73728-ubuntu,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=pickup_month))",6.266384018,3
+GCP,custom-36-73728-discounted-ubuntu,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=pickup_month))",4.386137783333333333333333,3
+AWS,c5.9xlarge-ubuntu,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=pickup_month))",6.923167125,3
+OCI,VM.Standard2.16-opc,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=pickup_month))",4.871060245333333333333333,3
+AWS,c5.9xlarge-ec2-user,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=pickup_month))",8.28323385,3
+OCI,BM.HPC2.36-ubuntu,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=pickup_month))",10.901916,2
+OCI,BM.HPC2.36-opc,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=pickup_month))",11.676462,2
+Azure,Standard_F16-ubuntu,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=pickup_month))",11.034464,6
+OCI,VM.Standard2.16-ubuntu,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=pickup_month))",7.633714234666666666666666,3
+OCI,VM.DenseIO2.16-ubuntu,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=pickup_month))",15.9436506,3
+Azure,Standard_E64s_v3-ubuntu,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=pickup_month))",24.108412717222222222222222,2
+OCI,BM.Standard2.52-opc,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=pickup_month))",13.215323232222222222222222,1
+OCI,BM.Standard2.52-ubuntu,"GroupBy(Rows(field=cab_type), Rows(field=pickup_year), Rows(field=pickup_month))",14.057717165555555555555555,1
+OCI,BM.HPC2.36-ubuntu,"GroupBy(Rows(field=pickup_year), Rows(field=passenger_count), Rows(field=dist_miles))",281.122743,2
+OCI,VM.Standard2.16-opc,"GroupBy(Rows(field=pickup_year), Rows(field=passenger_count), Rows(field=dist_miles))",165.081640826666666666666666,3
+Azure,Standard_F16-ubuntu,"GroupBy(Rows(field=pickup_year), Rows(field=passenger_count), Rows(field=dist_miles))",308.284902666666666666666666,6
+AWS,c5.9xlarge-ec2-user,"GroupBy(Rows(field=pickup_year), Rows(field=passenger_count), Rows(field=dist_miles))",297.078833925,3
+AWS,c5.9xlarge-ubuntu,"GroupBy(Rows(field=pickup_year), Rows(field=passenger_count), Rows(field=dist_miles))",319.1445717,3
+AWS,r5d.12xlarge-ubuntu,"GroupBy(Rows(field=pickup_year), Rows(field=passenger_count), Rows(field=dist_miles))",509.20841472,2
+Azure,Standard_F32s_v2-ubuntu,"GroupBy(Rows(field=pickup_year), Rows(field=passenger_count), Rows(field=dist_miles))",306.70691175,3
+GCP,custom-36-73728-ubuntu,"GroupBy(Rows(field=pickup_year), Rows(field=passenger_count), Rows(field=dist_miles))",358.66725897,3
+GCP,custom-36-73728-discounted-ubuntu,"GroupBy(Rows(field=pickup_year), Rows(field=passenger_count), Rows(field=dist_miles))",251.04813425,3
+OCI,BM.HPC2.36-opc,"GroupBy(Rows(field=pickup_year), Rows(field=passenger_count), Rows(field=dist_miles))",480.358959,2
+Azure,Standard_E64s_v3-ubuntu,"GroupBy(Rows(field=pickup_year), Rows(field=passenger_count), Rows(field=dist_miles))",651.940003313333333333333333,2
+OCI,VM.DenseIO2.16-ubuntu,"GroupBy(Rows(field=pickup_year), Rows(field=passenger_count), Rows(field=dist_miles))",621.3561812,3
+OCI,VM.Standard2.16-ubuntu,"GroupBy(Rows(field=pickup_year), Rows(field=passenger_count), Rows(field=dist_miles))",361.454100538666666666666666,3
+OCI,BM.Standard2.52-ubuntu,"GroupBy(Rows(field=pickup_year), Rows(field=passenger_count), Rows(field=dist_miles))",497.721399159111111111111111,1
+OCI,BM.Standard2.52-opc,"GroupBy(Rows(field=pickup_year), Rows(field=passenger_count), Rows(field=dist_miles))",771.047786938,1
+AWS,c5.9xlarge-ubuntu,TopN(cab_type),3.6591837,3
+AWS,r5d.12xlarge-ubuntu,TopN(cab_type),5.61968832,2
+OCI,BM.HPC2.36-opc,TopN(cab_type),5.5632885,2
+GCP,custom-36-73728-ubuntu,TopN(cab_type),4.853662096,3
+GCP,custom-36-73728-discounted-ubuntu,TopN(cab_type),3.397307066666666666666666,3
+Azure,Standard_F32s_v2-ubuntu,TopN(cab_type),4.61699325,3
+OCI,VM.Standard2.16-ubuntu,TopN(cab_type),3.893432429333333333333333,3
+OCI,VM.Standard2.16-opc,TopN(cab_type),4.174579464,3
+OCI,VM.DenseIO2.16-ubuntu,TopN(cab_type),8.8555958,3
+AWS,c5.9xlarge-ec2-user,TopN(cab_type),6.941427675,3
+Azure,Standard_F16-ubuntu,TopN(cab_type),7.565913333333333333333333,6
+Azure,Standard_E64s_v3-ubuntu,TopN(cab_type),12.980503568333333333333333,2
+OCI,BM.Standard2.52-opc,TopN(cab_type),5.997907471111111111111111,1
+OCI,BM.HPC2.36-ubuntu,TopN(cab_type),11.620854,2
+OCI,BM.Standard2.52-ubuntu,TopN(cab_type),11.354794721111111111111111,1
+AWS,c5.9xlarge-ubuntu,TopN(dist_miles),13.170444,3
+Azure,Standard_F32s_v2-ubuntu,TopN(dist_miles),14.179959,3
+Azure,Standard_F16-ubuntu,TopN(dist_miles),16.89222,6
+GCP,custom-36-73728-ubuntu,TopN(dist_miles),18.678627268,3
+GCP,custom-36-73728-discounted-ubuntu,TopN(dist_miles),13.074052366666666666666666,3
+AWS,c5.9xlarge-ec2-user,TopN(dist_miles),20.033428575,3
+OCI,VM.DenseIO2.16-ubuntu,TopN(dist_miles),28.3138128,3
+OCI,VM.Standard2.16-ubuntu,TopN(dist_miles),14.965936890666666666666666,3
+AWS,r5d.12xlarge-ubuntu,TopN(dist_miles),34.02358272,2
+OCI,VM.Standard2.16-opc,TopN(dist_miles),15.884832128,3
+OCI,BM.HPC2.36-opc,TopN(dist_miles),28.8259875,2
+Azure,Standard_E64s_v3-ubuntu,TopN(dist_miles),48.852938731666666666666666,2
+OCI,BM.HPC2.36-ubuntu,TopN(dist_miles),50.5855965,2
+OCI,BM.Standard2.52-opc,TopN(dist_miles),50.086006256,1
+OCI,BM.Standard2.52-ubuntu,TopN(dist_miles),77.978106206,1
+AWS,r5d.12xlarge-ubuntu,"TopN(dist_miles, Row(pickup_year=2011))",13.10416128,2
+Azure,Standard_F32s_v2-ubuntu,"TopN(dist_miles, Row(pickup_year=2011))",10.159758,3
+GCP,custom-36-73728-ubuntu,"TopN(dist_miles, Row(pickup_year=2011))",11.491416116,3
+GCP,custom-36-73728-discounted-ubuntu,"TopN(dist_miles, Row(pickup_year=2011))",8.043384233333333333333333,3
+AWS,c5.9xlarge-ubuntu,"TopN(dist_miles, Row(pickup_year=2011))",11.646702975,3
+OCI,VM.DenseIO2.16-ubuntu,"TopN(dist_miles, Row(pickup_year=2011))",15.5590613,3
+OCI,VM.Standard2.16-ubuntu,"TopN(dist_miles, Row(pickup_year=2011))",8.088216077333333333333333,3
+AWS,c5.9xlarge-ec2-user,"TopN(dist_miles, Row(pickup_year=2011))",12.61558695,3
+OCI,BM.HPC2.36-opc,"TopN(dist_miles, Row(pickup_year=2011))",17.208978,2
+OCI,BM.HPC2.36-ubuntu,"TopN(dist_miles, Row(pickup_year=2011))",22.3101135,2
+Azure,Standard_F16-ubuntu,"TopN(dist_miles, Row(pickup_year=2011))",20.21678,6
+Azure,Standard_E64s_v3-ubuntu,"TopN(dist_miles, Row(pickup_year=2011))",34.677078853333333333333333,2
+OCI,BM.Standard2.52-opc,"TopN(dist_miles, Row(pickup_year=2011))",23.120430889111111111111111,1
+OCI,VM.Standard2.16-opc,"TopN(dist_miles, Row(pickup_year=2011))",27.190035605333333333333333,3
+OCI,BM.Standard2.52-ubuntu,"TopN(dist_miles, Row(pickup_year=2011))",43.923072145333333333333333,1
