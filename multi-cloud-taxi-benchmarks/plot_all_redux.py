@@ -2,8 +2,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import re
 
-PLOT, PNG = True, False
-# PLOT, PNG = False, True
+from panda import pm
+
+# PLOT, PNG = True, False
+PLOT, PNG = False, True
 # PLOT, PNG = True, True
 # PLOT, PNG = False, False
 
@@ -25,63 +27,108 @@ color_map = {  # inspired by HO's mockup
 }
 
 
-units = [
-    (1.0, 'n'),
-    (1e-3, 'μ'),
-    (1e-6, 'm'),
-    (1e-9, ''),  # default
-]
-
 specs = [
     {
-        'csv_fname': 'csv/raw-performance-all--benchmarks-QueryResult.csv',
+        'csv_fname': 'csv/raw-performance-all--benchmarks-QueryResult-20190207.csv',
         'value_field': 'mean',
         'value_label': '',
-        'out_dir': 'png/redux-perf',
+        'out_dir': 'png/redux-perf-20190207',
     }, {
-        'csv_fname': 'csv/dpmq-all-queries-benchmarks-QueryResult.csv',
+        'csv_fname': 'csv/dpmq-all-queries-benchmarks-QueryResult-20190207.csv',
         'value_field': 'dpmq',
         'value_label': '$/Megaquery',
-        'out_dir': 'png/redux-dpmq',
+        'out_dir': 'png/redux-dpmq-20190207',
+    }, {
+        'csv_fname': 'csv/raw-performance-conc-benchmarks-QueryResult-20190207.csv',
+        'value_field': 'mean',
+        'value_label': '',
+        'out_dir': 'png/redux-conc-20190207',
+    }, {
+        'csv_fname': 'csv/bandwidth-benchmarks-benchmarks-QueryResult.csv',
+        'value_field': 'mean',
+        'value_label': 'MB/s',
+        'out_dir': 'png/bandwidth',
     }
 ]
 
 
 def slugify(s):
     s = s.lower()
-    if s.startswith('the '):
-        s = s[4:]
     s = re.sub('[ _]', '-', s)
     s = re.sub('[^0-9a-z\-]', '', s)
     return s
 
 
+def transform_title(title):
+    pngtitle = title
+    if len(title) > 200:
+        # replace single long-PQL benchmark name with something descriptive
+        pngtitle = '29-way Intersect'
+    figtitle = title
+    if figtitle.startswith('BW'):
+        figtitle = figtitle.replace('BW', '')
+    if len(title) > 50:
+        # split medium-length names onto multiple lines, at comma or slash
+        if ',' in title:
+            ix = title.index(',', 20)
+            figtitle = title[:ix+1] + '\n    ' + title[ix+1:]
+        elif '/' in title:
+            ix = title.index('/', 20)
+            figtitle = title[:ix+1] + '\n    ' + title[ix+1:]
+    return slugify(pngtitle), figtitle
+
+
+units = [
+    # values are in ns
+    (1.0, 'n'),
+    (1e-3, 'μ'),
+    (1e-6, 'm'),
+    (1e-9, ''),
+]
+
+units = [
+    # values are in ns
+    (1.0, 'M'),
+    (1e-3, 'G'),
+    (1e-6, 'T'),
+]
+
+
+
+def get_scale(val):
+    scale, prefix = units[0]
+    if val > 1e2:
+        scale, prefix = units[1]
+    if val > 1e5:
+        scale, prefix = units[2]
+    if val > 1e8:
+        scale, prefix = units[3]
+    return scale, prefix
+
+
+@pm
 def main(spec):
+    print(spec['csv_fname'])
     df = pd.read_csv(spec['csv_fname'])
     for title in df['benchmark'].unique():
         # sort by value
-        bms = df[df['benchmark'] == title].sort_values(by=[spec['value_field']])
+        bms = df[df['benchmark'] == title].sort_values(by=[spec['value_field']], ascending=False)
 
-        # compute scale
-        min_val = bms[spec['value_field']].min()
-        scale, prefix = units[0]
-        if min_val > 1e2:
-            scale, prefix = units[1]
-        if min_val > 1e5:
-            scale, prefix = units[2]
-        if min_val > 1e8:
-            scale, prefix = units[3]
+        # scale, prefix = get_scale(bms[spec['value_field']].min())
+        scale, prefix = 1, ''
 
         if spec['value_label']:
-            # dpmq
+            # dpmq, bw
             value_label = spec['value_label']
         else:
             # perf
             value_label = prefix + 's/operation (mean)'
-        value_label += '\n(lower is better)'
+        # value_label += '\n(lower is better)'
+        value_label += '\n(higher is better)'
 
         # group by cloud
-        bars = {'AWS': ([], []), 'Azure': ([], []), 'OCI': ([], []), 'GCP': ([], [])}
+        # bars = {'AWS': ([], []), 'Azure': ([], []), 'OCI': ([], []), 'GCP': ([], [])}
+        bars = {'AWS': ([], []), 'OCI': ([], []), 'GCP': ([], [])}
         names = []
         k = 0
         for n, r in bms.iterrows():
@@ -89,7 +136,7 @@ def main(spec):
 
             bars[r['cloud']][0].append(k)
             bars[r['cloud']][1].append(scale*r[spec['value_field']])
-            if title.startswith('Benchmark'):
+            if title.startswith('Benchmark') or title.startswith('BW'):
                 # single-fragment, don't care about cluster size
                 name = instance
             else:
@@ -99,15 +146,8 @@ def main(spec):
 
         # plot
         fig = plt.figure(figsize=figsize)
-        if len(title) > 200:
-            # replace single long-PQL benchmark name with something descriptive
-            title = '29-way Intersect'
-        figtitle = title
-        if len(title) > 50:
-            # split medium-length names onto multiple lines, at comma
-            ix = title.index(',', 20)
-            figtitle = title[:ix+1] + '\n    ' + title[ix+1:]
-        print(title)
+        pngtitle, figtitle = transform_title(title)
+        print('  %s' % pngtitle)
         plt.title(figtitle, fontsize=fontsize)
 
         # place figure at specific location on screen
@@ -117,14 +157,15 @@ def main(spec):
         for cloud, (x, y) in bars.items():
             plt.barh(x, y, color=color_map[cloud], label=cloud)
         plt.yticks(range(len(bms)), names, fontsize=16, rotation=0)
-        plt.ylabel('Cluster Configuration', fontsize=fontsize)
+        # plt.ylabel('Cluster Configuration', fontsize=fontsize)
+        plt.ylabel('Instance Type', fontsize=fontsize)
         plt.xlabel(value_label, fontsize=fontsize)
         ax = plt.gca()
         ax.yaxis.grid(False)
         ax.set_position([.9-ax_width, 0.15, ax_width, 0.75])
         plt.legend(fontsize=fontsize)
 
-        img_file = spec['out_dir'] + '/' + slugify(title) + '.png'
+        img_file = spec['out_dir'] + '/' + pngtitle + '.png'
         # print('    <div class=box><a href="%s"><img src="%s"><p>%s</p></a></div>' % (img_file, img_file, title))
         if PNG:
             plt.savefig(img_file, dpi=dpi, bbox_inches='tight')
@@ -135,5 +176,7 @@ def main(spec):
 
         plt.close(fig)
 
-main(specs[0])
-main(specs[1])
+#main(specs[0])
+#main(specs[1])
+# main(specs[2])
+main(specs[3])
