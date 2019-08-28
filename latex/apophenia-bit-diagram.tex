@@ -1,0 +1,40 @@
+\documentclass[varwidth]{standalone}
+\usepackage[table]{xcolor} % for table cell colors
+\renewcommand{\familydefault}{\sfdefault} % for sans font
+\begin{document}
+
+\definecolor{pilosa-lightblue}{HTML}{E4EFF4}
+\definecolor{pilosa-blue}{HTML}{3C5F8D}
+\definecolor{pilosa-green}{HTML}{1DB598}
+\definecolor{pilosa-red}{HTML}{ff2B2B}
+
+% https://tex.stackexchange.com/questions/62573/using-underbrace-with-table-columns
+
+% reproducing this:
+%High-order word:
+%0-23                     24-31   32-63
+%[iteration              ][seq   ][seed                         ]
+%Low-order word:
+%0-63
+%[id                                                            ]
+
+
+High-order word:\\
+\begin{tabular}{| c | c | c | c | c | c | c | c |}
+\hline
+0-7  & 8-15  & 16-23  & 24-31  & 32-39 & 40-47 & 48-55  & 56-63 \\
+\hline
+\omit\span\omit\span\omit\mathstrut\upbracefill & \omit\mathstrut\upbracefill & \omit\span\omit\span\omit\span\omit\mathstrut\upbracefill \\
+\multicolumn{3}{c}{iteration} & \multicolumn{1}{c}{seq} & \multicolumn{4}{c}{seed} \\
+\end{tabular}\\
+
+Low-order word:\\
+\begin{tabular}{| c | c | c | c | c | c | c | c |}
+\hline
+0-7  & 8-15  & 16-23  & 24-31  & 32-39 & 40-47 & 48-55  & 56-63 \\
+\hline
+\omit\span\omit\span\omit\span\omit\span\omit\span\omit\span\omit\span\omit\mathstrut\upbracefill \\
+\multicolumn{8}{c}{id} \\
+\end{tabular}
+
+\end{document}
